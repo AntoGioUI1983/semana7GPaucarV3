@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="semana6GPaucar.Views.vProductos"
+             BackgroundColor="White">
+    <VerticalStackLayout>
+
+        <StackLayout BackgroundColor="LightBlue" Padding="20">
+            <Image Source="https://www.uisrael.edu.ec/wp-content/uploads/2023/01/logo-uisrael@2x-e1674848533171.png"
+                   HeightRequest="40"/>
+            <Label Text="Consumo de Servicio WEB"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="(Listar)"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
+
+        <StackLayout BackgroundColor="Silver"  Padding="5">
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Cod." TextColor="Black"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Producto" TextColor="Black"/>
+            <Label Grid.Row="0" Grid.Column="2" Text="Categoria" TextColor="Black"/>
+            <Label Grid.Row="0" Grid.Column="3" Text="Precio$" TextColor="Black"/>
+            </Grid>
+
+        </StackLayout>
+        <ScrollView VerticalScrollBarVisibility="Always">
+            <StackLayout>
+                <ListView x:Name="ListaProductos" ItemSelected="ListaProductos_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Codigo}" TextColor="Black"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Producto}" TextColor="Black"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Categoria}" TextColor="Black"/>
+                                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding Precio}" TextColor="Black"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        <Button x:Name="btnAgregar" Text=" + Agregar" Clicked="btnAgregar_Clicked" BackgroundColor="Silver" TextColor="Black" WidthRequest="100"/>
+      
+    </VerticalStackLayout>
+</ContentPage>

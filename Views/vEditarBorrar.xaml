@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="semana6GPaucar.Views.vEditarBorrar"
+                     BackgroundColor="White">
+    <VerticalStackLayout>
+
+        <StackLayout BackgroundColor="LightBlue" Padding="20">
+            <Image Source="https://www.uisrael.edu.ec/wp-content/uploads/2023/01/logo-uisrael@2x-e1674848533171.png"
+               HeightRequest="40"/>
+            <Label Text="Consumo de Servicio WEB"
+               FontSize="20"
+               HorizontalTextAlignment="Center"/>
+            <Label Text="(Editar / Borrar)"
+               FontSize="20"
+               HorizontalTextAlignment="Center"/>
+        </StackLayout>
+
+
+        <Grid Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Código:" TextColor="Black"/>
+            <Entry Grid.Row="0" Grid.Column="1" x:Name="txtCodigo" Placeholder="Código" IsEnabled="False" />
+            
+            <Label Grid.Row="1" Grid.Column="0" Text="Producto:" TextColor="Black"/>
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="txtProducto" Placeholder="Digite el Producto" TextColor="Black"></Entry>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Categoria:" TextColor="Black"/>
+            <Entry Grid.Row="2" Grid.Column="1" x:Name="txtCategoria" Placeholder="Digite la Categoria" TextColor="Black"></Entry>
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Precio $:" TextColor="Black"/>
+            <Entry Grid.Row="3" Grid.Column="1" x:Name="txtPrecio" Placeholder="Digite el Precio $" TextColor="Black"></Entry>
+
+
+            <Button Grid.Row="5" Grid.Column="1" x:Name="btnActualizar" Text="Actualizar"  BackgroundColor="LightBlue" TextColor="Black" Clicked="btnActualizar_Clicked_1"></Button>
+            <Button Grid.Row="5" Grid.Column="3" x:Name="btnEliminar" Text="Eliminar" BackgroundColor="LightPink" Clicked="btnEliminar_Clicked"></Button>
+
+        </Grid>      
+
+    </VerticalStackLayout>
+</ContentPage>
