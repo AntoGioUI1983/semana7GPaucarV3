@@ -14,24 +14,29 @@ public partial class vEditarBorrar : ContentPage
         txtCodigo.Text = pro.Codigo.ToString();
     }
 
-   
 
-    private void btnEliminar_Clicked(object sender, EventArgs e)
+
+    private async void btnEliminar_Clicked(object sender, EventArgs e)
     {
         try
         {
-            WebClient cliente = new WebClient();
-            var parametros = new System.Collections.Specialized.NameValueCollection();
-            cliente.UploadValues("http://192.168.100.61:8080/appProductos/post.php?codigo=" + txtCodigo.Text, "DELETE", parametros);
-            DisplayAlert("Procesado", "Datos Eliminados", "Cerrar");
-            Navigation.PushAsync(new vProductos());
+            var button = sender as Button;
+            bool answer = await DisplayAlert("Confirmación", "¿Estás seguro de eliminar?", "Sí", "No");
+            if (answer)
+            {
+                WebClient cliente = new WebClient();
+                var parametros = new System.Collections.Specialized.NameValueCollection();
+                await cliente.UploadValuesTaskAsync("http://192.168.100.61:8080/appProductos/post.php?codigo=" + txtCodigo.Text, "DELETE", parametros);
+
+                await Navigation.PushAsync(new vProductos());
+            }
         }
         catch (Exception ex)
         {
-            DisplayAlert("Alert", ex.Message, "Cerrar");
+            await DisplayAlert("Alerta", ex.Message, "Cerrar");
         }
-
     }
+
 
     private void btnActualizar_Clicked_1(object sender, EventArgs e)
     {
